@@ -1,17 +1,17 @@
 
-const postList = document.getElementById("postList"); // Corrected ID name and spacing
+const postList = document.getElementById("postList"); 
 document.addEventListener("click", function (event) {
     if (event.target.id === "fetchButton") {
-        fetch("https://jsonplaceholder.typicode.com/posts/1") // Added /1 to get a specific post
+        fetch("https://jsonplaceholder.typicode.com/posts/1")
             .then(function (response) {
-                return response.json(); // Parse JSON
+                return response.json();
             })
             .then(function (json) {
                 console.log(json);
                 postList.innerHTML = `
                     <ul>
-                        <li><strong>Title:</strong> ${json.title}</li>
-                        <li><strong>Body:</strong> ${json.body}</li>
+                        <li>Title: ${json.title}</li>
+                        <li>Body: ${json.body}</li>
                     </ul>
                 `;
             })
